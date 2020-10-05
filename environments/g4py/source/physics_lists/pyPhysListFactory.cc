@@ -44,11 +44,10 @@ void export_G4PhysListFactory()
          return_internal_reference<>())
     .def("ReferencePhysList", &G4PhysListFactory::ReferencePhysList,
          return_internal_reference<>())
-    .def("IsReferencePhysList", &G4PhysListFactory::IsReferencePhysList,
-         return_internal_reference<>())
+    .def("IsReferencePhysList", &G4PhysListFactory::IsReferencePhysList)
     .def("AvailablePhysLists", &G4PhysListFactory::AvailablePhysLists,
-         return_internal_reference<>())
+	 return_value_policy<reference_existing_object>())
     .def("AvailablePhysListsEM", &G4PhysListFactory::AvailablePhysListsEM,
-         return_internal_reference<>())
+	 return_value_policy<reference_existing_object>())
     ;
 }
