@@ -24,22 +24,31 @@
 // ********************************************************************
 //
 // ====================================================================
-//   pymodG4physicslists.cc [Geant4Py module]
+//   pyPhysListFactory.cc
 //
-//                                         2005 Q
+//                                         2020 Q
 // ====================================================================
 #include <boost/python.hpp>
+#include "G4PhysListFactory.hh"
 
 using namespace boost::python;
 
 // ====================================================================
 // module definition
 // ====================================================================
-void export_PhysicsLists();
-void export_PhysListFactory();
-
-BOOST_PYTHON_MODULE(G4physicslists)
+void export_G4PhysListFactory()
 {
-  export_PhysicsLists();
-  export_PhysListFactory();
+  class_<G4PhysListFactory, G4PhysListFactory*>
+    ("G4PhysListFactory", "phys list factory")
+    .def("GetReferencePhysList", &G4PhysListFactory::GetReferencePhysList,
+         return_internal_reference<>())
+    .def("ReferencePhysList", &G4PhysListFactory::ReferencePhysList,
+         return_internal_reference<>())
+    .def("IsReferencePhysList", &G4PhysListFactory::IsReferencePhysList,
+         return_internal_reference<>())
+    .def("AvailablePhysLists", &G4PhysListFactory::AvailablePhysLists,
+         return_internal_reference<>())
+    .def("AvailablePhysListsEM", &G4PhysListFactory::AvailablePhysListsEM,
+         return_internal_reference<>())
+    ;
 }
