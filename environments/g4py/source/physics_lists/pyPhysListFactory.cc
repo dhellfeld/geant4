@@ -40,8 +40,15 @@ void export_G4PhysListFactory()
 {
   class_<G4PhysListFactory, G4PhysListFactory*>
     ("G4PhysListFactory", "phys list factory")
-    // ---
     .def("GetReferencePhysList", &G4PhysListFactory::GetReferencePhysList,
+         return_internal_reference<>())
+    .def("ReferencePhysList", &G4PhysListFactory::ReferencePhysList,
+         return_internal_reference<>())
+    .def("IsReferencePhysList", &G4PhysListFactory::IsReferencePhysList,
+         return_internal_reference<>())
+    .def("AvailablePhysLists", &G4PhysListFactory::AvailablePhysLists,
+         return_internal_reference<>())
+    .def("AvailablePhysListsEM", &G4PhysListFactory::AvailablePhysListsEM,
          return_internal_reference<>())
     ;
 }
