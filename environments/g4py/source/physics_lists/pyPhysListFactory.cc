@@ -36,7 +36,7 @@ using namespace boost::python;
 // ====================================================================
 // module definition
 // ====================================================================
-void export_G4PhysListFactory()
+void export_PhysListFactory()
 {
   class_<G4PhysListFactory, G4PhysListFactory*>
     ("G4PhysListFactory", "phys list factory")
